@@ -14,9 +14,9 @@ http.createServer(function(req, res){
     
     }else if (req.url === '/contact') {
         
-        // res.writeHead(200, {'Content-Type': 'text/html; charset=utf-8'});
-        let contact = fs.createReadStream(__dirname + '/contact.html','utf8');
-        contact.pipe(res);
+        res.writeHead(200, {'Content-Type': 'text/html; charset=utf-8'});
+        fs.createReadStream(__dirname + '/contact.html').pipe(res);
+        
     }else {
         res.write('Page not found');
         res.end();
